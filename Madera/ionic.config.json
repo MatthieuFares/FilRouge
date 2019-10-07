@@ -1,5 +1,7 @@
 {
   "name": "Madera",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

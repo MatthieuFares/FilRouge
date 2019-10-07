@@ -30,15 +30,23 @@ export class AuthenticationService {
   }
  
  
-  login() {
+  login(id:string,mdp:string) {
     var dummy_response = {
-      user_id: '007',
-      user_name: 'test'
+      user_id: id,
+      user_mdp: mdp
     };
-    this.storage.set('USER_INFO', dummy_response).then((response) => {
-      this.router.navigate(['dashboard']);
-      this.authState.next(true);
-    });
+    var cred = {
+      user_id: 'susu',
+      user_mdp: 'password',
+      user_name: 'susu'
+    }
+
+    if(dummy_response.user_id == cred.user_id && dummy_response.user_mdp == dummy_response.user_mdp){
+      this.storage.set('USER_INFO', cred).then((response) => {
+        this.router.navigate(['dashboard']);
+        this.authState.next(true);
+      });
+    }
   }
  
   logout() {
@@ -51,7 +59,5 @@ export class AuthenticationService {
   isAuthenticated() {
     return this.authState.value;
   }
- 
- 
- 
+
 }

@@ -5,11 +5,14 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-button (click)="loginUser()">
-    login
-  </ion-button>
- 
-  <a [routerLink]="['/dashboard']">Go to dashboard</a>
+  <ion-item>
+    <ion-label color="primary" floating>Identifiant</ion-label>
+    <ion-input [(ngModel)]="user_id"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" floating>Mot de Passe</ion-label>
+    <ion-input [(ngModel)]="user_mdp" type="password"></ion-input>
+  </ion-item>
+  <ion-button type="submit" (click)="loginUser()">Connexion</ion-button>
 
 </ion-content>
