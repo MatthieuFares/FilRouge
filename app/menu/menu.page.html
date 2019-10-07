@@ -1,0 +1,47 @@
+<ion-header translucent>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">Logo</ion-title>
+
+    <ion-title slot="secondary">Menu</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-buttons>
+        Déconnexion <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button size="large" color="secondary"><ion-text color="dark">CONSULTER</ion-text></ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button size="large" color="primary">CRÉER</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button size="large" color="secondary"><ion-text color="dark">GÉRER MODALITÉS DE PAIEMENT</ion-text></ion-button>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col>
+        <ion-button size="large" color="primary">MODIFIER</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button size="large" color="secondary" (tap)="pageSupprimer()"><ion-text color="dark">SUPPRIMER</ion-text></ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button size="large" color="primary">ADMINISTRATION</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
