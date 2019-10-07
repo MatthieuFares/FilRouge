@@ -36,7 +36,7 @@ export class AuthenticationService {
       user_name: 'test'
     };
     this.storage.set('USER_INFO', dummy_response).then((response) => {
-      this.router.navigate(['menu']);
+      this.router.navigate(['dashboard']);
       this.authState.next(true);
     });
   }
