@@ -37,8 +37,7 @@ export class AuthenticationService {
     };
     var cred = {
       user_id: 'susu',
-      user_mdp: 'password',
-      user_name: 'susu'
+      user_mdp: 'password'
     }
 
     if(dummy_response.user_id == cred.user_id && dummy_response.user_mdp == dummy_response.user_mdp){
