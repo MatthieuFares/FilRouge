@@ -12,6 +12,7 @@ import { AuthenticationService } from './services/Authentication.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  navigate:any;
   constructor(
     private router: Router,
     private platform: Platform,
@@ -35,5 +36,27 @@ export class AppComponent {
         }
       })
     });
+  }
+
+  sideMenu()
+  {
+    this.navigate =
+    [
+      {
+        title : "Menu",
+        url   : "/menu",
+        icon  : "home"
+      },
+      {
+        title : "Chat",
+        url   : "/chat",
+        icon  : "chatboxes"
+      },
+      {
+        title : "Contacts",
+        url   : "/contacts",
+        icon  : "contacts"
+      },
+    ]
   }
 }

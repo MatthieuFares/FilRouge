@@ -37,12 +37,12 @@ export class AuthenticationService {
     };
     var cred = {
       user_id: 'susu',
-      user_mdp: 'password'
+      user_mdp: 'susu'
     }
 
-    if(dummy_response.user_id == cred.user_id && dummy_response.user_mdp == dummy_response.user_mdp){
+    if((dummy_response.user_id == cred.user_id) && (dummy_response.user_mdp == cred.user_mdp)){
       this.storage.set('USER_INFO', cred).then((response) => {
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['menu']);
         this.authState.next(true);
       });
     }
