@@ -1,33 +1,42 @@
 <ion-header translucent>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-button>
-        <ion-icon slot="icon-only" name="menu"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
-    <ion-title slot="start">Logo</ion-title>
-
-    <ion-title slot="secondary">Créer</ion-title>
-
-    <ion-buttons slot="end">
-      <ion-buttons ion-button (click)="logoutUser()">
-        Déconnexion <ion-icon slot="icon-only" name="log-out"></ion-icon>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
       </ion-buttons>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
+  
+      <ion-title slot="start">Logo</ion-title>
+      <ion-title>Créer</ion-title>
+  
+      <ion-buttons slot="end">
+        <ion-buttons ion-button (click)="logoutUser()">
+          Déconnexion <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        </ion-buttons>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
 <ion-content>
     <form [formGroup]="FormDevis">
         <ion-item>
-            <ion-label color="primary" floating>Nombres de murs</ion-label>
-            <ion-input formControlName="murs"></ion-input>
+            <ion-label color="primary" floating>Nombres de murs exterieurs</ion-label>
+            <ion-input formControlName="mursExt"></ion-input>
+            <ion-label color="secondary" floating>Longueur murs exterieurs</ion-label>
+            <ion-input formControlName="tailleMurExt"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label color="primary" floating>Nombres de portes</ion-label>
-            <ion-input formControlName="portes"></ion-input>
+            <ion-label color="primary" floating>Nombres de murs interieurs</ion-label>
+            <ion-input formControlName="mursInt"></ion-input>
+            <ion-label color="secondary" floating>Longueur murs interieurs</ion-label>
+            <ion-input formControlName="tailleMurInt"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary" floating>Nombres de portes exterieurs</ion-label>
+            <ion-input formControlName="portesExt"></ion-input>
           </ion-item>
+          <ion-item>
+              <ion-label color="primary" floating>Nombres de portes interieurs</ion-label>
+              <ion-input formControlName="portesInt"></ion-input>
+            </ion-item>
           <ion-item>
               <ion-label color="primary" floating>Nombres de fenetres</ion-label>
               <ion-input formControlName="fenetres"></ion-input>

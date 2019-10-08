@@ -16,9 +16,13 @@ export class CreerPage implements OnInit {
     public FormBuilder: FormBuilder
     ) {
       this.FormDevis = FormBuilder.group({
-        murs: ['', Validators.required],
-        portes: ['', Validators.required],
-        fenetres: ['', Validators.required]
+        mursExt: ['', Validators.required],
+        mursInt:[''],
+        portesExt: ['', Validators.required],
+        portesInt:[''],
+        fenetres: ['', Validators.required],
+        tailleMurExt:[''],
+        tailleMurInt:['']
       });
 }
 
