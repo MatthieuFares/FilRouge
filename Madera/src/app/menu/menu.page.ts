@@ -21,6 +21,10 @@ export class MenuPage implements OnInit {
     this.router.navigate(['/creer']);
   }
 
+  goAdmin(){
+    this.router.navigate(['/administration']);
+  }
+
   logoutUser(){
     this.authService.logout();
   }
