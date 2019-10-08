@@ -4,10 +4,10 @@
 			<ion-title>Menu</ion-title>
 		</ion-toolbar>
 	</ion-header>
-	<ion-content>
-		<ion-list>
+	<ion-content class="sidebar">
+		<ion-list class="listMenu">
 			<ion-item>Consulter</ion-item>
-			<ion-item>Créer</ion-item>
+			<ion-item (click)="goCreer()">Créer</ion-item>
 			<ion-item>Modifier</ion-item>
 			<ion-item>Supprimer</ion-item>
 			<ion-item>Administration</ion-item>
