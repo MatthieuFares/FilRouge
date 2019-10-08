@@ -12,12 +12,15 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AuthGuard } from './services/auth-Guard.service';
 import { AuthenticationService } from './services/Authentication.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
  
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule, 
+    HttpClientModule,
     IonicModule.forRoot(), 
     ReactiveFormsModule,
     FormsModule,

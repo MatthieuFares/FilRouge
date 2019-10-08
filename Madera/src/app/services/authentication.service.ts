@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { ToastController, Platform } from '@ionic/angular';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
  
  
 @Injectable()
 export class AuthenticationService {
- 
+  
   authState = new BehaviorSubject(false);
  
   constructor(
