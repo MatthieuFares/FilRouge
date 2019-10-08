@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AuthenticationService } from '../services/Authentication.service';
+import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-creer',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreerPage implements OnInit {
 
-  constructor() { }
+  @Input() FormDevis: FormGroup;
+
+  constructor(
+    private authService: AuthenticationService,
+    public FormBuilder: FormBuilder
+    ) {
+      this.FormDevis = FormBuilder.group({
+        murs: ['', Validators.required],
+        portes: ['', Validators.required],
+        fenetres: ['', Validators.required]
+      });
+}
 
   ngOnInit() {
   }
 
+  logoutUser(){
+    this.authService.logout();
+  }
 }
