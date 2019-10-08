@@ -1,9 +1,37 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>creer</ion-title>
+<ion-header translucent>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">Logo</ion-title>
+
+    <ion-title slot="secondary">Créer</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-buttons ion-button (click)="logoutUser()">
+        Déconnexion <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <form [formGroup]="FormDevis">
+        <ion-item>
+            <ion-label color="primary" floating>Nombres de murs</ion-label>
+            <ion-input formControlName="murs"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary" floating>Nombres de portes</ion-label>
+            <ion-input formControlName="portes"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label color="primary" floating>Nombres de fenetres</ion-label>
+              <ion-input formControlName="fenetres"></ion-input>
+          </ion-item>
+          <ion-button (click)="submit">Créer</ion-button>
+      </form>
 </ion-content>

@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { AuthGuard } from './services/auth-Guard.service';
 import { AuthenticationService } from './services/Authentication.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
  
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,8 @@ import { AuthenticationService } from './services/Authentication.service';
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
+    ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule,
     IonicStorageModule.forRoot()
   ],

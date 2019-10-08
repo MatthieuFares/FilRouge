@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController, NavController } from '@ionic/angular';
 import { AuthenticationService } from '../services/Authentication.service';
 import { Router } from '@angular/router';
 
