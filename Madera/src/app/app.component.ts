@@ -53,4 +53,8 @@ export class AppComponent {
     this.menuSideBar.open('custom');
   }
 
+  goCreer(){
+    this.router.navigate(['/creer']);
+  }
+
 }

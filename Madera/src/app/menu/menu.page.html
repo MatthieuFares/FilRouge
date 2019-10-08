@@ -4,40 +4,42 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
 
-    <ion-title slot="start">Logo</ion-title>
-    <ion-title>Menu</ion-title>
+    <img class="logo" src="../../assets/img/logo.png" slot="start"/>
+    <ion-title text-center>ACCUEIL</ion-title>
 
     <ion-buttons slot="end">
       <ion-buttons ion-button (click)="logoutUser()">
-        Déconnexion <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        Déconnexion&nbsp;<ion-icon slot="icon-only" name="log-out"></ion-icon>
       </ion-buttons>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
   
-<ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-button size="large" color="secondary"><ion-text color="dark">CONSULTER</ion-text></ion-button>
+<ion-content padding>
+  <ion-grid style="height: 100%">
+    <ion-row justify-content-center align-items-center style="height: 100%">
+      <ion-col text-center>
+        <ion-button class="btn1" size="large" color="secondary"><ion-text color="dark">CONSULTER</ion-text></ion-button>
       </ion-col>
-      <ion-col>
-        <ion-button size="large" color="primary" (click)="goCreer()">CRÉER</ion-button>
+      <ion-col text-center>
+        <ion-button class="btn1" size="large" color="primary" (click)="goCreer()">CRÉER</ion-button>
       </ion-col>
-      <ion-col>
-        <ion-button size="large" color="secondary"><ion-text color="dark">GÉRER MODALITÉS DE PAIEMENT</ion-text></ion-button>
+      <ion-col text-center>
+        <ion-button class="btn1" size="large" color="secondary"><ion-text color="dark">GÉRER MODALITÉS DE PAIEMENT</ion-text></ion-button>
       </ion-col>
-    </ion-row>
-  
-    <ion-row>
-      <ion-col>
-        <ion-button size="large" color="primary">MODIFIER</ion-button>
+      <ion-col text-center>
+        <ion-button class="btn1" size="large" color="primary">MODIFIER</ion-button>
       </ion-col>
-      <ion-col>
-        <ion-button size="large" color="secondary" (tap)="pageSupprimer()"><ion-text color="dark">SUPPRIMER</ion-text></ion-button>
+      <ion-col text-center>
+        <ion-button class="btn1" size="large" color="secondary" (tap)="pageSupprimer()"><ion-text color="dark">SUPPRIMER</ion-text></ion-button>
       </ion-col>
+<<<<<<< Updated upstream
       <ion-col>
         <ion-button size="large" color="primary" (click)="goAdmin()">ADMINISTRATION</ion-button>
+=======
+      <ion-col text-center>
+        <ion-button class="btn1" size="large" color="primary">ADMINISTRATION</ion-button>
+>>>>>>> Stashed changes
       </ion-col>
     </ion-row>
   </ion-grid>
