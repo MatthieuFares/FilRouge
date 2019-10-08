@@ -13,34 +13,97 @@
         </ion-buttons>
       </ion-buttons>
     </ion-toolbar>
-  </ion-header>
-  
+</ion-header>
+
 <ion-content>
+  <ion-grid class="creerMais">
     <form [formGroup]="FormDevis">
-        <ion-item>
-            <ion-label color="primary" floating>Nombres de murs exterieurs</ion-label>
-            <ion-input formControlName="mursExt"></ion-input>
-            <ion-label color="secondary" floating>Longueur murs exterieurs</ion-label>
-            <ion-input formControlName="tailleMurExt"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label color="primary" floating>Nombres de murs interieurs</ion-label>
-            <ion-input formControlName="mursInt"></ion-input>
-            <ion-label color="secondary" floating>Longueur murs interieurs</ion-label>
-            <ion-input formControlName="tailleMurInt"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label color="primary" floating>Nombres de portes exterieurs</ion-label>
-            <ion-input formControlName="portesExt"></ion-input>
-          </ion-item>
-          <ion-item>
-              <ion-label color="primary" floating>Nombres de portes interieurs</ion-label>
-              <ion-input formControlName="portesInt"></ion-input>
-            </ion-item>
-          <ion-item>
-              <ion-label color="primary" floating>Nombres de fenetres</ion-label>
-              <ion-input formControlName="fenetres"></ion-input>
-          </ion-item>
-          <ion-button (click)="submit">Créer</ion-button>
-      </form>
+
+      <ion-item>
+        <ion-label text-wrap>Nombre de murs extérieurs :</ion-label>
+        <ion-label text-wrap color="primary">{{ selectMursExt }} murs extérieurs</ion-label>
+        <ion-button slot="end" fill="clear" (click)="pickerMursExt()">Selectionner</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-label color="secondary" position="floating">Longueur murs exterieurs</ion-label>
+        <ion-input formControlName="tailleMurExt"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nombre de murs intérieurs :</ion-label>
+        <ion-label color="primary">{{ selectMursInt }} murs intérieurs</ion-label>
+        <ion-button slot="end" fill="clear" (click)="pickerMursInt()">Selectionner</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-label color="secondary" position="floating">Longueur murs intérieurs</ion-label>
+        <ion-input formControlName="tailleMurExt"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nombre de portes extérieures :</ion-label>
+        <ion-label color="primary">{{ selectDoorExt }} portes extérieures</ion-label>
+        <ion-button slot="end" fill="clear" (click)="pickerDoorExt()">Selectionner</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nombre de portes intérieures :</ion-label>
+        <ion-label color="primary">{{ selectDoorInt }} portes intérieures</ion-label>
+        <ion-button slot="end" fill="clear" (click)="pickerDoorInt()">Selectionner</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nombre de fenêtres :</ion-label>
+        <ion-label color="primary">{{ selectWindows }} fenêtres</ion-label>
+        <ion-button slot="end" fill="clear" (click)="pickerWindows()">Selectionner</ion-button>
+      </ion-item>
+
+      <ion-item lines="none" text-center>
+        <ion-button class="btnCreer" size="large" (click)="submit">Créer</ion-button>
+      </ion-item>
+      
+
+    </form>
+  </ion-grid>
+
+  <ion-item class="footer">
+    <img class="gifCreer" src="../../assets/img/giphy.gif" />
+  </ion-item>
 </ion-content>
+
+
+
+  
+
+<!--<ion-content>
+
+  <ion-grid class="creerMais">
+    <form [formGroup]="FormDevis">
+      <ion-row>
+      <ion-item class="centerCreer">
+          <ion-label color="primary" position="floating">Nombres de murs exterieurs</ion-label>
+          <ion-input formControlName="mursExt"></ion-input>
+          <ion-label color="secondary" position="floating">Longueur murs exterieurs</ion-label>
+          <ion-input formControlName="tailleMurExt"></ion-input>
+      </ion-item></ion-row>
+      <ion-item class="centerLog">
+          <ion-label color="primary" position="floating">Nombres de murs interieurs</ion-label>
+          <ion-input formControlName="mursInt"></ion-input>
+          <ion-label color="secondary" position="floating">Longueur murs interieurs</ion-label>
+          <ion-input formControlName="tailleMurInt"></ion-input>
+      </ion-item>
+      <ion-item class="centerLog">
+          <ion-label color="primary" position="floating">Nombres de portes exterieurs</ion-label>
+          <ion-input formControlName="portesExt"></ion-input>
+      </ion-item>
+      <ion-item class="centerLog">
+          <ion-label color="primary" position="floating">Nombres de portes interieurs</ion-label>
+          <ion-input formControlName="portesInt"></ion-input>
+        </ion-item>
+      <ion-item class="centerLog">
+          <ion-label color="primary" position="floating">Nombres de fenetres</ion-label>
+          <ion-input formControlName="fenetres"></ion-input>
+      </ion-item>
+      <ion-button (click)="submit">Créer</ion-button>
+    </form>
+  </ion-grid>
+</content>-->
