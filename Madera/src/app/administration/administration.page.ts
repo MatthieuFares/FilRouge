@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/Authentication.service';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-administration',
@@ -13,6 +13,7 @@ export class AdministrationPage implements OnInit {
     private router: Router,
     private authService: AuthenticationService
     ) { }
+
 
   ngOnInit() {
   }
