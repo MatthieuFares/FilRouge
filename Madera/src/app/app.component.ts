@@ -61,4 +61,8 @@ export class AppComponent {
     this.router.navigate(['/administration']);
   }
 
+  goModPai(){
+    this.router.navigate(['/modalitePaiement']);
+  }
+
 }

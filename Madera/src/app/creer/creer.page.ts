@@ -224,4 +224,5 @@ export class CreerPage implements OnInit {
     console.log(this.PrixMais);
   }
 
+
 }
