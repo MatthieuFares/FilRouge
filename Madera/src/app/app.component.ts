@@ -57,4 +57,8 @@ export class AppComponent {
     this.router.navigate(['/creer']);
   }
 
+  goAdmin(){
+    this.router.navigate(['/administration']);
+  }
+
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../services/Authentication.service';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -9,10 +12,18 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./stock.page.scss'],
 })
 export class StockPage implements OnInit {
+  stocks: Observable<any>;
 
   constructor(
-    private authService: AuthenticationService
-    ) { }
+    private authService: AuthenticationService,
+    private navCtrl: NavController,
+    public httpClient: HttpClient
+    ) { 
+      this.stocks = this.httpClient.get('http://maderaproject.com/api/maderaapi/service/read.php');
+      this.stocks.subscribe(data => {
+        console.log('les services : ', data);
+      })
+    }
 
   ngOnInit() {
   }
