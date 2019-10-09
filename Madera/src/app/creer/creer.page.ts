@@ -3,6 +3,7 @@ import { AuthenticationService } from '../services/Authentication.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { PickerController } from '@ionic/angular';
 import { PickerOptions } from '@ionic/core';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-creer',
@@ -17,6 +18,13 @@ export class CreerPage implements OnInit {
   selectWindows = '';
 
   @Input() FormDevis: FormGroup;
+
+  mursExtPrix: number;
+  mursIntPrix:number;
+  fenetresPrix: number;
+  portesExtPrix: number;
+  portesIntPrix: number;
+  PrixMais: number;
 
   constructor(
     private authService: AuthenticationService,
@@ -204,4 +212,16 @@ export class CreerPage implements OnInit {
   logoutUser(){
     this.authService.logout();
   }
+
+  estimate(){
+    this.mursExtPrix = 100,
+    this.mursIntPrix = 80,
+    this.fenetresPrix = 60,
+    this.portesExtPrix = 100,
+    this.portesIntPrix = 50
+
+    this.PrixMais = (parseInt(this.selectMursExt)*parseInt(this.FormDevis.value['tailleMurExt'])*this.mursExtPrix)+(parseInt(this.selectMursInt)*parseInt(this.FormDevis.value['tailleMurInt'])*this.mursIntPrix)+(parseInt(this.selectDoorExt)*this.portesExtPrix)+(parseInt(this.selectDoorInt)*this.portesIntPrix)+(parseInt(this.selectWindows)*this.fenetresPrix);
+    console.log(this.PrixMais);
+  }
+
 }
