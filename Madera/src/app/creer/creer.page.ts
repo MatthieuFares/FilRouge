@@ -1,9 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../services/Authentication.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { PickerController } from '@ionic/angular';
+import { PickerController, Platform } from '@ionic/angular';
 import { PickerOptions } from '@ionic/core';
-import { TouchSequence } from 'selenium-webdriver';
+
+
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { format } from 'url';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-creer',
@@ -25,12 +34,17 @@ export class CreerPage implements OnInit {
   portesExtPrix: number;
   portesIntPrix: number;
   PrixMais: number;
+  pdfObj: any;
+  montxt : string;
 
   constructor(
     private authService: AuthenticationService,
     public FormBuilder: FormBuilder,
-    private pickerCtrl: PickerController
-    ) {
+    private pickerCtrl: PickerController,
+    private plt: Platform,
+    private file: File,
+    private fileOpener: FileOpener)
+     {
       this.FormDevis = FormBuilder.group({
         mursExt: ['', Validators.required],
         mursInt:[''],
@@ -241,6 +255,96 @@ export class CreerPage implements OnInit {
 
     this.PrixMais = (parseInt(this.selectMursExt)*parseInt(this.FormDevis.value['tailleMurExt'])*this.mursExtPrix)+(parseInt(this.selectMursInt)*parseInt(this.FormDevis.value['tailleMurInt'])*this.mursIntPrix)+(parseInt(this.selectDoorExt)*this.portesExtPrix)+(parseInt(this.selectDoorInt)*this.portesIntPrix)+(parseInt(this.selectWindows)*this.fenetresPrix);
     console.log(this.PrixMais);
+    this.montxt = this.PrixMais.toString();
+  }
+
+  createPdf() {
+    this.estimate();
+    this.mursExtPrix = parseInt(this.selectMursExt)*parseInt(this.FormDevis.value['tailleMurExt'])*this.mursExtPrix,
+    this.mursIntPrix = parseInt(this.selectMursInt)*parseInt(this.FormDevis.value['tailleMurInt'])*this.mursIntPrix,
+    this.fenetresPrix = parseInt(this.selectWindows)*this.fenetresPrix,
+    this.portesExtPrix = parseInt(this.selectDoorExt)*this.portesExtPrix,
+    this.portesIntPrix = parseInt(this.selectDoorInt)*this.portesIntPrix
+    var docDefinition = {
+      content: [
+        //{ image: "../../assets/img/logo.png"},
+        { text: 'Devis Maison Modulaire', style: 'header', alignment: 'center'},
+        { text: formatDate(new Date(), 'dd/MM/yyyy', 'en'), alignment: 'right' },
+ 
+        { text: 'Agent : SUSU', style: 'subheader' },
+        { text: 'Numero : 123456789' },
+ 
+        { text: 'Client', style: 'subheader' },
+        
+        { text: 'Nombre de murs Extérieurs :'},
+        { text: this.selectMursExt, alignment:'center'},
+        { text: 'Taille murs Extérieurs :'},
+        { text: this.FormDevis.value['tailleMurExt'],alignment:'center'},
+        { text: 'Prix murs Extérieurs :',alignment: 'right'},
+        { text: this.mursExtPrix, alignment: 'right'},
+        { text:' '},
+        { text: 'Nombre de murs Intérieurs :'},
+        { text: this.selectMursInt,alignment:'center'},
+        { text: 'Taille murs Intérieurs :'},
+        { text: this.FormDevis.value['tailleMurInt'],alignment:'center'},
+        { text: 'Prix murs Extérieurs :',alignment: 'right'},
+        { text: this.mursIntPrix, alignment: 'right'},
+        { text:' '},
+        { text: 'Nombre de portes Extérieurs :'},
+        { text: this.selectDoorExt,alignment:'center'},
+        { text: 'Prix portes Extérieurs :',alignment: 'right'},
+        { text: this.portesExtPrix, alignment: 'right'},
+        { text:' '},
+        { text: 'Nombre de portes Intérieurs :'},
+        { text: this.selectDoorInt,alignment:'center'},
+        { text: 'Prix portes Intérieurs :',alignment: 'right'},
+        { text: this.portesIntPrix, alignment: 'right'},
+        { text:' '},
+        { text: 'Nombre de fenêtres :'},
+        { text: this.selectWindows,alignment:'center'},
+        { text: 'Prix fenêtres :',alignment: 'right'},
+        { text: this.fenetresPrix, alignment: 'right'},
+        { text:' '},
+        { text: 'Prix Devis:', style: 'subheader',alignment: 'right'},
+        { text: this.montxt, alignment: 'right', style: 'subheader'}
+
+      ],
+      styles: {
+        header: {
+          fontSize: 18,
+          bold: true,
+        },
+        subheader: {
+          fontSize: 14,
+          bold: true,
+          margin: [0, 15, 0, 0]
+        },
+        story: {
+          italic: true,
+          alignment: 'center',
+          width: '50%',
+        }
+      }
+    }
+    this.pdfObj = pdfMake.createPdf(docDefinition);
+  }
+ 
+  downloadPdf() {
+    this.createPdf();
+    if (this.plt.is('cordova')) {
+      this.pdfObj.getBuffer((buffer) => {
+        var blob = new Blob([buffer], { type: 'application/pdf' });
+ 
+        // Save the PDF to the data Directory of our App
+        this.file.writeFile(this.file.dataDirectory, 'myDevis.pdf', blob, { replace: true }).then(fileEntry => {
+          // Open the PDf with the correct OS tools
+          this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
+        })
+      });
+    } else {
+      // On a browser simply use download!
+      this.pdfObj.download();
+    }
   }
 
 

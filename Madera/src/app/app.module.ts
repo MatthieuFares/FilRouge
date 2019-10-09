@@ -13,6 +13,7 @@ import { AuthGuard } from './services/auth-Guard.service';
 import { AuthenticationService } from './services/Authentication.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 
  
 @NgModule({
@@ -32,6 +33,12 @@ import { HttpClientModule } from '@angular/common/http';
     SplashScreen,
     AuthGuard,
     AuthenticationService,
+<<<<<<< Updated upstream
+=======
+    WebView,
+    File,
+    FileOpener,
+>>>>>>> Stashed changes
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
