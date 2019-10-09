@@ -22,6 +22,10 @@ export class AdministrationPage implements OnInit {
     this.router.navigate(['/stock']);
   }
 
+  goGererClient(){
+    this.router.navigate(['/gererClient']);
+  }
+
   logoutUser(){
     this.authService.logout();
   }

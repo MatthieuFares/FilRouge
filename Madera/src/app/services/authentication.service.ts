@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
  
 @Injectable()
 export class AuthenticationService {
+  status: string;
   
   authState = new BehaviorSubject(false);
  
@@ -15,11 +16,13 @@ export class AuthenticationService {
     private router: Router,
     private storage: Storage,
     private platform: Platform,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private httpClient: HttpClient
   ) {
     this.platform.ready().then(() => {
       this.ifLoggedIn();
     });
+    this.status = '';
   }
  
   ifLoggedIn() {
@@ -59,5 +62,6 @@ export class AuthenticationService {
   isAuthenticated() {
     return this.authState.value;
   }
+
 
 }

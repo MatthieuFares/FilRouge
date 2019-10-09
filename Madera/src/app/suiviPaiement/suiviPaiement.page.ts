@@ -3,11 +3,11 @@ import { AuthenticationService } from '../services/Authentication.service';
 import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
-  selector: 'app-modalitePaiement',
-  templateUrl: './modalitePaiement.page.html',
-  styleUrls: ['./modalitePaiement.page.scss'],
+  selector: 'app-suiviPaiement',
+  templateUrl: './suiviPaiement.page.html',
+  styleUrls: ['./suiviPaiement.page.scss'],
 })
-export class ModalitePaiementPage implements OnInit {
+export class SuiviPaiementPage implements OnInit {
 
   constructor(
     private router: Router,
@@ -16,10 +16,6 @@ export class ModalitePaiementPage implements OnInit {
 
 
   ngOnInit() {
-  }
-
-  goSuiviPaiement() {
-    this.router.navigate(['/suiviPaiement']);
   }
 
   logoutUser(){

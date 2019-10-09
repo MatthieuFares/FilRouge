@@ -8,8 +8,9 @@ const routes: Routes = [
   { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule'},
   { path: 'creer', loadChildren: './creer/creer.module#CreerPageModule' },
   { path: 'modalitePaiement', loadChildren: './modalitePaiement/modalitePaiement.module#ModalitePaiementPageModule' },
+  { path: 'suiviPaiement', loadChildren: './suiviPaiement/suiviPaiement.module#SuiviPaiementPageModule' },
   { path: 'administration', loadChildren: './administration/administration.module#AdministrationPageModule' },
-  { path: 'stock', loadChildren: './stock/stock.module#StockPageModule' },
+  { path: 'stock', loadChildren: './stock/stock.module#StockPageModule' }
 
 ];
  

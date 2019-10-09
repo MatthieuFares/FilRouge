@@ -1,0 +1,121 @@
+<ion-header translucent>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  
+      <img class="logo" src="../../assets/img/logo.png" slot="start"/>
+      <ion-title text-center>SUIVI DE PAIEMENT</ion-title>
+  
+      <ion-buttons slot="end">
+        <ion-buttons ion-button (click)="logoutUser()">
+          Déconnexion&nbsp;<ion-icon slot="icon-only" name="log-out"></ion-icon>
+        </ion-buttons>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="cont" col-1>Total à régler : </ion-col>
+        <ion-col class="cont" col-2> </ion-col>
+        <ion-col class="cont" col-3> </ion-col>
+        <ion-col class="cont" col-4> </ion-col>
+        <ion-col class="cont" col-5>
+          <ion-select placeholder="Sélectionner une commande">
+            <ion-select-option value="f">List bdd</ion-select-option>
+            <ion-select-option value="m">A remplir</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="premiere" col-2>Étape </ion-col>
+        <ion-col class="reste" col-3>Somme</ion-col>
+        <ion-col class="reste" col-4>Date</ion-col>
+        <ion-col class="reste" col-5>Validation</ion-col>
+      </ion-row>
+      <ion-row text-center>
+        <ion-col class="premiere" col-2>A la signature</ion-col>
+        <ion-col class="reste" col-3>... €</ion-col>
+        <ion-col class="reste" col-4>
+            <ion-datetime displayFormat="DD/MM/YYYY" min="1994-03-14" max="2025-12-31" value="2019-10-09T15:03:46.789"></ion-datetime>
+        </ion-col>
+        <ion-col class="reste" col-5>
+          <ion-checkbox></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row text-center>
+        <ion-col class="premiere" col-2>Obtention du permis de construire</ion-col>
+        <ion-col class="reste" col-3>... €</ion-col>
+        <ion-col class="reste" col-4>
+          <ion-datetime displayFormat="DD/MM/YYYY" min="1994-03-14" max="2025-12-31" value="2019-10-09T15:03:46.789"></ion-datetime>
+        </ion-col>
+        <ion-col class="reste" col-5>
+          <ion-checkbox></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row text-center>
+        <ion-col class="premiere" col-2>Ouverture du chantier</ion-col>
+        <ion-col class="reste" col-3>... €</ion-col>
+        <ion-col class="reste" col-4>
+          <ion-datetime displayFormat="DD/MM/YYYY" min="1994-03-14" max="2025-12-31" value="2019-10-09T15:03:46.789"></ion-datetime>
+        </ion-col>
+        <ion-col class="reste" col-5>
+          <ion-checkbox></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row text-center>
+        <ion-col class="premiere" col-2>Achèvement des fondations</ion-col>
+        <ion-col class="reste" col-3>... €</ion-col>
+        <ion-col class="reste" col-4>
+          <ion-datetime displayFormat="DD/MM/YYYY" min="1994-03-14" max="2025-12-31" value="2019-10-09T15:03:46.789"></ion-datetime>
+        </ion-col>
+        <ion-col class="reste" col-5>
+          <ion-checkbox></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row text-center>
+        <ion-col class="premiere" col-2>Achèvement des murs</ion-col>
+        <ion-col class="reste" col-3>... €</ion-col>
+        <ion-col class="reste" col-4>
+          <ion-datetime displayFormat="DD/MM/YYYY" min="1994-03-14" max="2025-12-31" value="2019-10-09T15:03:46.789"></ion-datetime>
+        </ion-col>
+        <ion-col class="reste" col-5>
+          <ion-checkbox></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row text-center>
+        <ion-col class="premiere" col-2>Mise hors d'eau / hors d'air</ion-col>
+        <ion-col class="reste" col-3>... €</ion-col>
+        <ion-col class="reste" col-4>
+          <ion-datetime displayFormat="DD/MM/YYYY" min="1994-03-14" max="2025-12-31" value="2019-10-09T15:03:46.789"></ion-datetime>
+        </ion-col>
+        <ion-col class="reste" col-5>
+          <ion-checkbox></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row text-center>
+        <ion-col class="premiere" col-2>Achèvement des travaux d'équipement (plomberie, menuiserie, chauffage)</ion-col>
+        <ion-col class="reste" col-3>... €</ion-col>
+        <ion-col class="reste" col-4>
+          <ion-datetime displayFormat="DD/MM/YYYY" min="1994-03-14" max="2025-12-31" value="2019-10-09T15:03:46.789"></ion-datetime>
+        </ion-col>
+        <ion-col class="reste" col-5>
+          <ion-checkbox></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row text-center>
+        <ion-col class="premiere" col-2>Remise des clés</ion-col>
+        <ion-col class="reste" col-3>... €</ion-col>
+        <ion-col class="reste" col-4>
+          <ion-datetime displayFormat="DD/MM/YYYY" min="1994-03-14" max="2025-12-31" value="2019-10-09T15:03:46.789"></ion-datetime>
+        </ion-col>
+        <ion-col class="reste" col-5>
+          <ion-checkbox></ion-checkbox>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </ion-content>
+  

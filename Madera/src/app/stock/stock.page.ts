@@ -19,10 +19,10 @@ export class StockPage implements OnInit {
     private authService: AuthenticationService,
     private httpClient: HttpClient
     ) { 
-      this.stocks = this.httpClient.get('http://maderaproject.com/api/maderaapi/service/read.php');
+      /*this.stocks = this.httpClient.get('http://maderaproject.com/api/maderaapi/service/read.php');
       this.stocks.subscribe(data => {
         console.log('les services : ', data);
-      })
+      })*/
       this.data = '';
       this.error = '';
     }
