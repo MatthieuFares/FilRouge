@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../services/Authentication.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { ThrowStmt } from '@angular/compiler';
 
 
 @Component({
@@ -11,6 +12,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StockPage implements OnInit {
   stocks: Observable<any>;
+  data: string;
+  error: string;
 
   constructor(
     private authService: AuthenticationService,
@@ -20,8 +23,24 @@ export class StockPage implements OnInit {
       this.stocks.subscribe(data => {
         console.log('les services : ', data);
       })
+      this.data = '';
+      this.error = '';
     }
 
+  ionViewWillEnter() {
+    this.prepareDataRequest().subscribe(data => {
+      this.data = JSON.stringify(data);
+    },
+    err => {
+      this.error = `An error occurred, the data could not be retrieved: Status: ${err.status}, Message: ${err.statusText}`;
+    }
+    )
+  }
+  
+  private prepareDataRequest(): Observable<object> {
+    const dataUrl = 'http://maderaproject.com/api/maderaapi/service/read.php';
+    return this.httpClient.get(dataUrl);
+  }
 
   ngOnInit() {
   }
