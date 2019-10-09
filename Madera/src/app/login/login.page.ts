@@ -11,8 +11,8 @@ import { AuthenticationService } from '../services/Authentication.service';
 
 export class LoginPage implements OnInit {
 
-  user_id : string;
-  user_mdp:string;
+  user_id: string;
+  user_mdp: string;
 
   constructor(
     private authService: AuthenticationService,

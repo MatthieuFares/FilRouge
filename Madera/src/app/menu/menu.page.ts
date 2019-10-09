@@ -25,6 +25,10 @@ export class MenuPage implements OnInit {
     this.router.navigate(['/administration']);
   }
 
+  goModalitePaiement() {
+    this.router.navigate(['/modalitePaiement']);
+  }
+
   logoutUser(){
     this.authService.logout();
   }

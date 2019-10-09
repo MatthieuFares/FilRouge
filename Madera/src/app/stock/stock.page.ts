@@ -28,12 +28,13 @@ export class StockPage implements OnInit {
     }
 
   ionViewWillEnter() {
-    this.prepareDataRequest().subscribe(data => {
+    this.prepareDataRequest().subscribe(
+      data => {
       this.data = JSON.stringify(data);
-    },
-    err => {
-      this.error = `An error occurred, the data could not be retrieved: Status: ${err.status}, Message: ${err.statusText}`;
-    }
+      },
+      err => {
+        this.error = `An error occurred, the data could not be retrieved: Status: ${err.status}, Message: ${err.statusText}`;
+      }
     )
   }
   
