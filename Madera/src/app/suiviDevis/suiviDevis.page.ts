@@ -57,6 +57,7 @@ export class SuiviDevisPage implements OnInit {
     console.log(recupRef);
   }
 
+
   ngOnInit() {
   }
 
