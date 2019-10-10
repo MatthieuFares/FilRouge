@@ -22,8 +22,8 @@ export class AdministrationPage implements OnInit {
     this.router.navigate(['/stock']);
   }
 
-  goGererClient(){
-    this.router.navigate(['/gererClient']);
+  goClient(){
+    this.router.navigate(['/client']);
   }
 
   goModule(){
