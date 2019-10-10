@@ -24,8 +24,7 @@
         <ion-col class="cont" col-4> </ion-col>
         <ion-col class="cont" col-5>
           <ion-select placeholder="Sélectionner une commande">
-            <ion-select-option value="f">List bdd</ion-select-option>
-            <ion-select-option value="m">A remplir</ion-select-option>
+            <ion-select-option *ngFor="let dat of commandeListe" [value]="dat">{{dat.idCommande}}</ion-select-option>
           </ion-select>
         </ion-col>
       </ion-row>

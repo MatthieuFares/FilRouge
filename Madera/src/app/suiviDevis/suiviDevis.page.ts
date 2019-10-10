@@ -13,8 +13,9 @@ export class SuiviDevisPage implements OnInit {
   error: string;
   devisListe: any = [];
 
-  valider: boolean;
-  refuser: boolean;
+  etat: boolean;
+  day: any;
+  indexOfDay: any;
 
   constructor(
     private authService: AuthenticationService,
@@ -22,14 +23,13 @@ export class SuiviDevisPage implements OnInit {
     ) {
       this.data = '';
       this.error = '';
-     }
+    }
 
   ionViewWillEnter() {
     this.prepareDataRequest().subscribe(
-      data => {
-        data = data;
-        //this.data = JSON.stringify(data);
-        console.log(data);
+      (data: any) => {
+        this.devisListe = data.data;
+        console.log(data.data);
       },
       err => {
         this.error = `An error occurred, the data could not be retrieved: Status: ${err.status}, Message: ${err.statusText}`;
@@ -38,14 +38,20 @@ export class SuiviDevisPage implements OnInit {
   }
   
   private prepareDataRequest(): Observable<object> {
-    const dataUrl = 'http://maderaproject.com/api/maderaapi/composant/read_one.php?composantId=1';
+    const dataUrl = 'http://maderaproject.com/api/maderaapi/devis/read.php';
     return this.httpClient.get(dataUrl);
   }
+  private prepareDataRequestOne(): Observable<object> {
+    const dataUrlOne = `http://maderaproject.com/api/maderaapi/devis/read_one?idDevis=${this.etat}.php`;
+    return this.httpClient.get(dataUrlOne);
+  }
 
-  checkEvent() {
-    this.prepareDataRequest().subscribe(
+  checkEventValider(recupVal: any) {
+    console.log(recupVal);
+  }
 
-    )
+  checkEventRefuser(recupRef: any) {
+    console.log(recupRef);
   }
 
   ngOnInit() {

@@ -21,14 +21,12 @@
             <ion-col class="cont" col-1>Date : 
                 <ion-datetime displayFormat="DD/MM/YYYY" min="1994-03-14" max="2025-12-31" value="2019-10-09T15:03:46.789"></ion-datetime>
             </ion-col>
-            <ion-col class="cont" col-2>Libellé : 
-                <ion-input placeholder="Entrer libellé"></ion-input>
-            </ion-col>
+            <ion-col class="cont" col-2> </ion-col>
             <ion-col class="cont" col-3> </ion-col>
             <ion-col class="cont" col-4> </ion-col>
             <ion-col class="cont" col-5>
-            <ion-select placeholder="Filtrer statut">
-                <ion-select-option value="liste bdd">liste bdd</ion-select-option>
+            <ion-select  placeholder="Filtrer statut">
+                <ion-select-option *ngFor="let dat of devisListe" [value]="dat">{{dat.statutDevis}}</ion-select-option>
             </ion-select>
             </ion-col>
         </ion-row>
@@ -38,14 +36,14 @@
             <ion-col class="reste" col-4>Valider</ion-col>
             <ion-col class="reste" col-5>Refuser</ion-col>
         </ion-row>
-        <ion-row *ngFor="let dat of data" text-center>
-            <ion-col class="reste" col-2>{{dat.idComposant}}</ion-col>
-            <ion-col class="reste" col-3>{{dat.idDevis}}</ion-col>
+        <ion-row *ngFor="let dat of devisListe; let i = index" text-center>
+            <ion-col class="reste" col-2>{{dat.idDevis}}</ion-col>
+            <ion-col class="reste" col-3>{{dat.statutDevis}}</ion-col>
             <ion-col class="reste" col-4>
-                <ion-checkbox (ionChange)="checkEvent()"></ion-checkbox>
+                <ion-checkbox value="{{dat.idDevis}}" (ionChange)="checkEventValider(dat.idDevis)"></ion-checkbox>
             </ion-col>
             <ion-col class="reste" col-5>
-                <ion-checkbox (ionChange)="checkEvent()"></ion-checkbox>
+                <ion-checkbox value="{{dat.idDevis}}" (ionChange)="checkEventRefuser(dat.idDevis)"></ion-checkbox>
             </ion-col>
         </ion-row>
     </ion-grid>
