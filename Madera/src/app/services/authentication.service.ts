@@ -33,7 +33,6 @@ export class AuthenticationService {
     });
   }
  
- 
   login(id:string,mdp:string) {
     var dummy_response = {
       user_id: id,
