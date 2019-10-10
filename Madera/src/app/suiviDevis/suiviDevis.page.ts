@@ -41,8 +41,8 @@ export class SuiviDevisPage implements OnInit {
     const dataUrl = 'http://maderaproject.com/api/maderaapi/devis/read.php';
     return this.httpClient.get(dataUrl);
   }
-  private prepareDataRequestOne(): Observable<object> {
-    const dataUrlOne = `http://maderaproject.com/api/maderaapi/devis/read_one?idDevis=${this.etat}.php`;
+  private prepareDataRequestOne(id: any): Observable<object> {
+    const dataUrlOne = `http://maderaproject.com/api/maderaapi/devis/read_one?idDevis=${id}.php`;
     return this.httpClient.get(dataUrlOne);
   }
 
@@ -51,6 +51,9 @@ export class SuiviDevisPage implements OnInit {
   }
 
   checkEventRefuser(recupRef: any) {
+    this.prepareDataRequestOne(recupRef).subscribe (
+
+    )
     console.log(recupRef);
   }
 

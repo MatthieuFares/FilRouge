@@ -26,6 +26,10 @@ export class AdministrationPage implements OnInit {
     this.router.navigate(['/gererClient']);
   }
 
+  goModule(){
+    this.router.navigate(['/module']);
+  }
+
   logoutUser(){
     this.authService.logout();
   }
