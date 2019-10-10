@@ -16,7 +16,7 @@
   </ion-header>
  
 <ion-content>
-  <ion-grid>
+  <!--<ion-grid>
     <ion-row>
       <ion-col class="cont" col-1>Libellé</ion-col>
       <ion-col class="cont" col-2>Caractéristique</ion-col>
@@ -29,9 +29,20 @@
         </ion-row></ion-col>
       <ion-col class="cont" col-5>Modifier</ion-col>
     </ion-row>
-  </ion-grid>
-
-  <p *ngIf="!error;else errorContent">{{ data ? data : '-' }}</p>
-  <ng-template #errorContent><p><span style="color: red;">{{error}}</span></p></ng-template>
   
+  </ion-grid>-
+
+    <p *ngIf="!error;else errorContent">{{ data ? data : '-' }}</p>
+    <ng-template #errorContent><p><span style="color: red;">{{error}}</span></p></ng-template>-->
+
+    <ngx-datatable class="fullscreen" [ngClass]="tablestyle" [rows]="data" [columnMode]="'force'" [sortType]="'multi'" [reorderable]="false">
+      <ngx-datatable-column name="libelleComposant">Libellé</ngx-datatable-column>
+      <ngx-datatable-column name="caracterComposant">Caractéristique</ngx-datatable-column>
+      <ngx-datatable-column name="uniteUsageComposant">Unité</ngx-datatable-column>
+      <ngx-datatable-column name="quantiteLille">Lille</ngx-datatable-column>
+      <ngx-datatable-column name="quantiteDax">Dax</ngx-datatable-column>
+      <ngx-datatable-column name="quantiteAnnecy">Annecy</ngx-datatable-column>
+
+    </ngx-datatable>
+
 </ion-content>
