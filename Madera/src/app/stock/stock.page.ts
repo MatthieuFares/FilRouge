@@ -2,8 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../services/Authentication.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { ThrowStmt } from '@angular/compiler';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stock',
@@ -14,50 +13,45 @@ export class StockPage implements OnInit {
   stocks: Observable<any>;
   data: string;
   error: string;
-  obj: Array<0>;
+  stockDetail: any = [];
 
   constructor(
     private authService: AuthenticationService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private router: Router
     ) { 
-      /*this.stocks = this.httpClient.get('http://maderaproject.com/api/maderaapi/service/read.php');
-      this.stocks.subscribe(data => {
-        console.log('les services : ', data);
-      })*/
       this.data = '';
       this.error = '';
     }
 
-    ionViewDidLoad(){
-      this.prepareDataRequest().subscribe(
-        data => {
-        this.data = JSON.stringify(data);
-        },
-        err => {
-          this.error = `An error occurred, the data could not be retrieved: Status: ${err.status}, Message: ${err.statusText}`;
-        }
-      )
-    }
-  
-  private prepareDataRequest(): Observable<object> {
-    const dataUrl = 'http://maderaproject.com/api/maderaAPI/composant/read.php';
-    return this.httpClient.get(dataUrl);
-  }
-
- ngOnInit() {
+  ionViewWillEnter() {
     this.prepareDataRequest().subscribe(
-      data => {
-      this.data = JSON.stringify(data);
+      (data: any) => {
+        this.stockDetail = data.data;
+        console.log(data.data);
       },
       err => {
         this.error = `An error occurred, the data could not be retrieved: Status: ${err.status}, Message: ${err.statusText}`;
       }
     )
   }
+  
+  private prepareDataRequest(): Observable<object> {
+    const dataUrl = 'http://maderaproject.com/api/maderaapi/composant/read.php';
+    return this.httpClient.get(dataUrl);
+  }
 
+
+  ngOnInit() {
+  }
 
   logoutUser(){
     this.authService.logout();
   }
   
+  goDetail(){
+    this.router.navigate(['/stock-detail']);
+  }
+
+
 }
