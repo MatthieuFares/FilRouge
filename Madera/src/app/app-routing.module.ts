@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'creer', loadChildren: './creer/creer.module#CreerPageModule' },
   { path: 'modalitePaiement', loadChildren: './modalitePaiement/modalitePaiement.module#ModalitePaiementPageModule' },
   { path: 'suiviPaiement', loadChildren: './suiviPaiement/suiviPaiement.module#SuiviPaiementPageModule' },
+  { path: 'suiviDevis', loadChildren: './suiviDevis/suiviDevis.module#SuiviDevisPageModule' },
   { path: 'administration', loadChildren: './administration/administration.module#AdministrationPageModule' },
   { path: 'stock', loadChildren: './stock/stock.module#StockPageModule' },
   { path: 'stock-detail', loadChildren: './stock-detail/stock-detail.module#StockDetailPageModule' }
