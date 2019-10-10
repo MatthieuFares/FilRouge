@@ -5,6 +5,8 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +15,6 @@ import { AuthGuard } from './services/auth-Guard.service';
 import { AuthenticationService } from './services/Authentication.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { WebView } from '@ionic-native/ionic-webview/ngx';
 
  
 @NgModule({
@@ -33,12 +34,8 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
     SplashScreen,
     AuthGuard,
     AuthenticationService,
-<<<<<<< Updated upstream
-=======
-    WebView,
     File,
     FileOpener,
->>>>>>> Stashed changes
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
