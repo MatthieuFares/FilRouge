@@ -89,5 +89,4 @@ export class AuthenticationService {
     return this.authState.value;
   }
 
-
 }
