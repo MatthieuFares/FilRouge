@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'suiviPaiement', loadChildren: './suiviPaiement/suiviPaiement.module#SuiviPaiementPageModule' },
   { path: 'suiviDevis', loadChildren: './suiviDevis/suiviDevis.module#SuiviDevisPageModule' },
   { path: 'administration', loadChildren: './administration/administration.module#AdministrationPageModule' },
+  { path: 'client', loadChildren: './client/client.module#ClientPageModule' },
   { path: 'module', loadChildren: './module/module.module#ModulePageModule' },
   { path: 'stock', loadChildren: './stock/stock.module#StockPageModule' },
   { path: 'stock-detail', loadChildren: './stock-detail/stock-detail.module#StockDetailPageModule' }

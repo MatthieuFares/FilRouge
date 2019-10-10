@@ -1,0 +1,50 @@
+<ion-header translucent>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  
+      <img class="logo" src="../../../assets/img/logo.png" slot="start"/>
+      <ion-title text-center>Gestion des Clients</ion-title>
+  
+      <ion-buttons slot="end">
+        <ion-buttons ion-button (click)="logoutUser()">
+          Déconnexion <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        </ion-buttons>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+ 
+<ion-content>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Société</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Téléphone</th>
+        <th scope="col">Mail</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dat of clientDetail">
+        <th>{{dat.nomClient}}</th>
+        <th>{{dat.prenomClient}}</th>
+        <th>{{dat.societeClient}}</th>
+		<th><p value="{{dat.rueClient}} {{dat.villeClient}} {{dat.cpClient}}"/></th>
+        <th>{{dat.telClient}}</th>
+        <th>{{dat.mailClient}}</th>
+    </tbody>
+    
+  </table>
+
+</ion-content>
