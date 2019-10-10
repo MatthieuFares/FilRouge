@@ -338,7 +338,7 @@ export class CreerPage implements OnInit {
         // Save the PDF to the data Directory of our App
         this.file.writeFile(this.file.dataDirectory, 'myDevis.pdf', blob, { replace: true }).then(fileEntry => {
           // Open the PDf with the correct OS tools
-          this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
+          this.fileOpener.open(this.file.dataDirectory + 'myDevis.pdf', 'application/pdf');
         })
       });
     } else {

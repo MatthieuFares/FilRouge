@@ -1,9 +1,51 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>stockDetail</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header translucent>
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+      <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    
+        <img class="logo" src="../../../assets/img/logo.png" slot="start"/>
+        <ion-title text-center>Detail du Composant</ion-title>
+    
+        <ion-buttons slot="end">
+          <ion-buttons ion-button (click)="logoutUser()">
+            Déconnexion <ion-icon slot="icon-only" name="log-out"></ion-icon>
+          </ion-buttons>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
 
 <ion-content>
-
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Libellé</th>
+            <th scope="col">Caractéristique</th>
+            <th scope="col">Unité d'usage</th>
+            <th scope="col">Site Lille</th>
+            <th scope="col">Site Dax</th>
+            <th scope="col">Site Annecy</th>
+    
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dat of data">
+              <th>{{dat.libelleComposant}}</th>
+              <th>{{dat.caracterComposant}}</th>
+              <th>{{dat.uniteUsageComposant}}</th>
+              <th>{{dat.quantite.Lille}}</th>
+              <th>{{dat.quantite.Dax}}</th>
+              <th>{{dat.quantite.Annecy}}</th>
+            </tr>
+          </tbody>
+          
+        </table>
+      
 </ion-content>

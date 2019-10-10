@@ -1,10 +1,17 @@
 <ion-header translucent>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <ion-toolbar color="primary">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
   
-      <img class="logo" src="../../assets/img/logo.png" slot="start"/>
+      <img class="logo" src="../../../assets/img/logo.png" slot="start"/>
       <ion-title text-center>Gestion des Stocks</ion-title>
   
       <ion-buttons slot="end">
@@ -16,38 +23,31 @@
   </ion-header>
  
 <ion-content>
-  <!--<ion-grid>
-    <ion-row>
-      <ion-col class="cont" col-1>Libellé</ion-col>
-      <ion-col class="cont" col-2>Caractéristique</ion-col>
-      <ion-col class="cont" col-3>Unité d'usage</ion-col>
-      <ion-col class="cont" col-4>Sites
-        <ion-row>
-          <ion-col>Lilles</ion-col>
-          <ion-col>Dax</ion-col>
-          <ion-col>Annecy</ion-col>
-        </ion-row></ion-col>
-      <ion-col class="cont" col-5>Modifier</ion-col>
-    </ion-row>
-  </ion-grid>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Libellé</th>
+        <th scope="col">Caractéristique</th>
+        <th scope="col">Unité d'usage</th>
+        <th scope="col">Site Lille</th>
+        <th scope="col">Site Dax</th>
+        <th scope="col">Site Annecy</th>
+        <th scope="col">Modifier</th>
 
-  <p *ngIf="!error;else errorContent">{{ data ? data : '-' }}</p>
-  <ng-template #errorContent><p><span style="color: red;">{{error}}</span></p></ng-template>
--->
-
-<!--<ngx-datatable class="fullscreen" [ngClass]="tablestyle" [rows]="data" [columnMode]="'force'" [sortType]="'multi'" [reorderable]="false">
-  <ngx-datatable-column name="libelleComposant"></ngx-datatable-column>
-  <ngx-datatable-column name="caracterComposant"></ngx-datatable-column>
-  <ngx-datatable-column name="uniteUsageComposant"></ngx-datatable-column>
-  <ngx-datatable-column name="Lille"></ngx-datatable-column>
-  <ngx-datatable-column name="Dax"></ngx-datatable-column>
-  <ngx-datatable-column name="Annecy"></ngx-datatable-column>
-</ngx-datatable>-->
-
-<table>
-  <tr>
-    <th *ngif="let i for header"></th>
-  </tr>
-</table>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dat of stockDetail">
+        <th>{{dat.libelleComposant}}</th>
+        <th>{{dat.caracterComposant}}</th>
+        <th>{{dat.uniteUsageComposant}}</th>
+        <th>{{dat.quantite.Lille}}</th>
+        <th>{{dat.quantite.Dax}}</th>
+        <th>{{dat.quantite.Annecy}}</th>
+        <th><ion-button color="secondary" (click)="goDetail()">{{dat.modifier}}</ion-button></th>
+      </tr>
+    </tbody>
+    
+  </table>
 
 </ion-content>
