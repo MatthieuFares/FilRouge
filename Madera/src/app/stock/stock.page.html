@@ -16,7 +16,7 @@
   </ion-header>
  
 <ion-content>
-  <ion-grid>
+  <!--<ion-grid>
     <ion-row>
       <ion-col class="cont" col-1>Libellé</ion-col>
       <ion-col class="cont" col-2>Caractéristique</ion-col>
@@ -33,5 +33,21 @@
 
   <p *ngIf="!error;else errorContent">{{ data ? data : '-' }}</p>
   <ng-template #errorContent><p><span style="color: red;">{{error}}</span></p></ng-template>
-  
+-->
+
+<!--<ngx-datatable class="fullscreen" [ngClass]="tablestyle" [rows]="data" [columnMode]="'force'" [sortType]="'multi'" [reorderable]="false">
+  <ngx-datatable-column name="libelleComposant"></ngx-datatable-column>
+  <ngx-datatable-column name="caracterComposant"></ngx-datatable-column>
+  <ngx-datatable-column name="uniteUsageComposant"></ngx-datatable-column>
+  <ngx-datatable-column name="Lille"></ngx-datatable-column>
+  <ngx-datatable-column name="Dax"></ngx-datatable-column>
+  <ngx-datatable-column name="Annecy"></ngx-datatable-column>
+</ngx-datatable>-->
+
+<table>
+  <tr>
+    <th *ngif="let i for header"></th>
+  </tr>
+</table>
+
 </ion-content>

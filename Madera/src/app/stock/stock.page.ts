@@ -14,6 +14,7 @@ export class StockPage implements OnInit {
   stocks: Observable<any>;
   data: string;
   error: string;
+  obj: Array<0>;
 
   constructor(
     private authService: AuthenticationService,
@@ -27,7 +28,23 @@ export class StockPage implements OnInit {
       this.error = '';
     }
 
-  ionViewWillEnter() {
+    ionViewDidLoad(){
+      this.prepareDataRequest().subscribe(
+        data => {
+        this.data = JSON.stringify(data);
+        },
+        err => {
+          this.error = `An error occurred, the data could not be retrieved: Status: ${err.status}, Message: ${err.statusText}`;
+        }
+      )
+    }
+  
+  private prepareDataRequest(): Observable<object> {
+    const dataUrl = 'http://maderaproject.com/api/maderaAPI/composant/read.php';
+    return this.httpClient.get(dataUrl);
+  }
+
+ ngOnInit() {
     this.prepareDataRequest().subscribe(
       data => {
       this.data = JSON.stringify(data);
@@ -37,14 +54,7 @@ export class StockPage implements OnInit {
       }
     )
   }
-  
-  private prepareDataRequest(): Observable<object> {
-    const dataUrl = 'http://maderaproject.com/api/maderaapi/service/read.php';
-    return this.httpClient.get(dataUrl);
-  }
 
-  ngOnInit() {
-  }
 
   logoutUser(){
     this.authService.logout();
