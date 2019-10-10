@@ -57,7 +57,6 @@ export class AppComponent {
     this.router.navigate(['/creer']);
   }
 
-<<<<<<< Updated upstream
   goAdmin(){
     this.router.navigate(['/administration']);
   }
@@ -66,6 +65,4 @@ export class AppComponent {
     this.router.navigate(['/modalitePaiement']);
   }
 
-=======
->>>>>>> Stashed changes
 }

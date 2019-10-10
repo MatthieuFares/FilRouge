@@ -39,6 +39,7 @@ export class StockPage implements OnInit {
     this.prepareDataRequest().subscribe(
       data => {
       this.data = JSON.stringify(data);
+      /*var rows = JSON.parse(data);*/
       },
       err => {
         this.error = `An error occurred, the data could not be retrieved: Status: ${err.status}, Message: ${err.statusText}`;
