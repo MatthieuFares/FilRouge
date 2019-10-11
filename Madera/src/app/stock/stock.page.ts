@@ -49,7 +49,7 @@ export class StockPage implements OnInit {
     this.authService.logout();
   }
   
-  goDetail(id:any){
+  goDetail(id:string){
     this.router.navigate(['/stock-detail', id]);
   }
 
