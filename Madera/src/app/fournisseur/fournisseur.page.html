@@ -12,7 +12,7 @@
       </ion-buttons>
   
       <img class="logo" src="../../../assets/img/logo.png" slot="start"/>
-      <ion-title text-center>Gestion des Clients</ion-title>
+      <ion-title text-center>Gestion des Fournisseurs</ion-title>
   
       <ion-buttons slot="end">
         <ion-buttons ion-button (click)="logoutUser()">
@@ -26,9 +26,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Nom</th>
-        <th scope="col">Prénom</th>
-        <th scope="col">Société</th>
+        <th scope="col">Libelle</th>
         <th scope="col">Adresse</th>
         <th scope="col">Téléphone</th>
         <th scope="col">Mail</th>
@@ -36,17 +34,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let dat of clientDetail">
-        <th>{{dat.nomClient}}</th>
-        <th>{{dat.prenomClient}}</th>
-        <th>{{dat.societeClient}}</th>
-<<<<<<< HEAD
-		<th>{{dat.rueClient}} {{dat.villeClient}} {{dat.cpClient}}</th>
-=======
-		<th>{{dat.rueClient}} {{dat.villeClient}} {{dat.cpClient}}"/></th>
->>>>>>> Au'Secours
-        <th>{{dat.telClient}}</th>
-        <th>{{dat.mailClient}}</th>
+      <tr *ngFor="let dat of fournisseurDetail">
+        <th>{{dat.libelleFournisseur}}</th>
+		<th>{{dat.rueFournisseur}} {{dat.villeFournisseur}} {{dat.cpFournisseur}}"/></th>
+        <th>{{dat.telFournisseur}}</th>
+        <th>{{dat.mailFournisseur}}</th>
     </tbody>
     
   </table>
