@@ -49,8 +49,8 @@ export class StockPage implements OnInit {
     this.authService.logout();
   }
   
-  goDetail(){
-    this.router.navigate(['/stock-detail']);
+  goDetail(id:any){
+    this.router.navigate(['/stock-detail', id]);
   }
 
 

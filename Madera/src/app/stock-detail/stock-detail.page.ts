@@ -1,26 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from '../services/Authentication.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-stock-detail',
   templateUrl: './stock-detail.page.html',
   styleUrls: ['./stock-detail.page.scss'],
 })
+
+
 export class StockDetailPage implements OnInit {
   stocks: Observable<any>;
   data: string;
   error: string;
+  id:string;
 
   constructor(
     private authService: AuthenticationService,
     private httpClient: HttpClient,
+    private Activatedroute:ActivatedRoute,
     private router: Router
     ) { 
       this.data = '';
       this.error = '';
+      this.id = '';
     }
 
   ionViewWillEnter() {
@@ -36,7 +43,8 @@ export class StockDetailPage implements OnInit {
   }
   
   private prepareDataRequest(): Observable<object> {
-    const dataUrl = 'http://maderaproject.com/api/maderaapi/composant/read_one.php?composantId=1';
+    this.id = this.Activatedroute.snapshot.paramMap.get("id");
+    const dataUrl = `http://maderaproject.com/api/maderaapi/composant/read_one.php?composantId=${this.id}.php`;
     return this.httpClient.get(dataUrl);
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/Authentication.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-suiviDevis',
@@ -41,20 +42,51 @@ export class SuiviDevisPage implements OnInit {
     const dataUrl = 'http://maderaproject.com/api/maderaapi/devis/read.php';
     return this.httpClient.get(dataUrl);
   }
-  private prepareDataRequestOne(id: any): Observable<object> {
-    const dataUrlOne = `http://maderaproject.com/api/maderaapi/devis/read_one?idDevis=${id}.php`;
-    return this.httpClient.get(dataUrlOne);
+  private prepareDataRequestOne(dat: any): Observable<object> {
+    
+    const dataUrlOne = `http://maderaproject.com/api/maderaapi/devis/read_one.php?devisId=${dat.idDevis}`;
+    return this.httpClient.put(dataUrlOne, {
+      prixDevis: dat.prixDevis, 
+      etatDevis: dat.etatDevis, 
+      dateDevis: dat.dateDevis, 
+      dateEvolutionDevis: dat.dateEvolutionDevis, 
+      avancementDevisByUserId: dat.avancementDevisByUserId,
+      idDossier: dat.idDossier,
+      idMaison: dat.idMaison,
+      idDevis: dat.idDevis
+    });
   }
 
-  checkEventValider(recupVal: any) {
-    console.log(recupVal);
+  checkEventValider(dat: any) {
+    dat.prixDevis = dat.prixDevis;
+    dat.etatDevis = "1";
+    dat.dateDevis = dat.dateDevis;
+    dat.dateEvolutionDevis =  formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    dat.avancementDevisByUserId = dat.avancementDevisByUserId;
+    dat.idDossier = dat.idDossier;
+    dat.idMaison = dat.idMaison;
+    dat.idDevis = dat.idDevis;
+
+    this.prepareDataRequestOne(dat).subscribe (data=>{
+      console.log(data);
+    }
+      )
   }
 
-  checkEventRefuser(recupRef: any) {
-    this.prepareDataRequestOne(recupRef).subscribe (
+  checkEventRefuser(dat: any) {
+    dat.prixDevis = dat.prixDevis;
+    dat.etatDevis = "2";
+    dat.dateDevis = dat.dateDevis;
+    dat.dateEvolutionDevis =  formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    dat.avancementDevisByUserId = dat.avancementDevisByUserId;
+    dat.idDossier = dat.idDossier;
+    dat.idMaison = dat.idMaison;
+    dat.idDevis = dat.idDevis;
 
+    this.prepareDataRequestOne(dat).subscribe (
+      
     )
-    console.log(recupRef);
+    console.log(dat);
   }
 
 

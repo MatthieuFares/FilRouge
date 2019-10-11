@@ -9,7 +9,7 @@ import { StockDetailPage } from './stock-detail.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'stock-detail/:id',
     component: StockDetailPage
   }
 ];

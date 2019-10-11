@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'famillecomposant', loadChildren: './famillecomposant/famillecomposant.module#FamilleComposantPageModule' },
   { path: 'module', loadChildren: './module/module.module#ModulePageModule' },
   { path: 'stock', loadChildren: './stock/stock.module#StockPageModule' },
-  { path: 'stock-detail', loadChildren: './stock-detail/stock-detail.module#StockDetailPageModule' }
+  { path: 'stock-detail/:id', loadChildren: './stock-detail/stock-detail.module#StockDetailPageModule' }
 
 ];
  

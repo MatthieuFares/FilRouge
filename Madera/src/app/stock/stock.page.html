@@ -32,7 +32,7 @@
         <th scope="col">Site Lille</th>
         <th scope="col">Site Dax</th>
         <th scope="col">Site Annecy</th>
-        <th scope="col">Modifier</th>
+        <th scope="col"></th>
 
       </tr>
     </thead>
@@ -44,7 +44,7 @@
         <th>{{dat.quantite.Lille}}</th>
         <th>{{dat.quantite.Dax}}</th>
         <th>{{dat.quantite.Annecy}}</th>
-        <th><ion-button color="secondary" (click)="goDetail()">{{dat.modifier}}</ion-button></th>
+        <th><ion-button color="secondary" (click)="goDetail({{dat.idComposant}})">Modifer</ion-button></th>
       </tr>
     </tbody>
     

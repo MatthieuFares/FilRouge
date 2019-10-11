@@ -40,10 +40,10 @@
             <ion-col class="reste" col-2>{{dat.idDevis}}</ion-col>
             <ion-col class="reste" col-3>{{dat.statutDevis}}</ion-col>
             <ion-col class="reste" col-4>
-                <ion-checkbox value="{{dat.idDevis}}" (ionChange)="checkEventValider(dat.idDevis)"></ion-checkbox>
+                <ion-checkbox value="{{dat.idDevis}}" (ionChange)="checkEventValider(dat)"></ion-checkbox>
             </ion-col>
             <ion-col class="reste" col-5>
-                <ion-checkbox value="{{dat.idDevis}}" (ionChange)="checkEventRefuser(dat.idDevis)"></ion-checkbox>
+                <ion-checkbox value="{{dat.idDevis}}" (ionChange)="checkEventRefuser(dat)"></ion-checkbox>
             </ion-col>
         </ion-row>
     </ion-grid>
