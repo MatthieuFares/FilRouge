@@ -11,7 +11,6 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
-import { format } from 'url';
 import { formatDate } from '@angular/common';
 
 @Component({
