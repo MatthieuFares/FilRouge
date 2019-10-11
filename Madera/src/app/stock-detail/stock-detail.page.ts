@@ -25,8 +25,8 @@ export class StockDetailPage implements OnInit {
 
   ionViewWillEnter() {
     this.prepareDataRequest().subscribe(
-      data => {
-        data = data;
+      (data:any) => {
+        this.data = data;
         console.log(data)
       },
       err => {
