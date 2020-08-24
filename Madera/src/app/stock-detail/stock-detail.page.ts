@@ -60,7 +60,7 @@ export class StockDetailPage implements OnInit {
     return this.httpClient.get(dataUrl);
   }
 
-  /*private sendDataUpdate(data:any): Observable<any>{
+  private sendDataUpdate(data:any): Observable<any>{
     const dataUrl = `http://maderaproject.com/api/maderaapi/stocker/read_one.php?composantId=${this.id}.php`;
     return this.httpClient.put(dataUrl,{
       idSite:data.idSite,
@@ -97,7 +97,7 @@ export class StockDetailPage implements OnInit {
       this.sendDataUpdate(data).subscribe(data=>{
         console.log(data);
       })
-  }*/
+  }
 
 
   ngOnInit() {
