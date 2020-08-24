@@ -53,10 +53,6 @@ export class AppComponent {
     this.menuSideBar.open('custom');
   }
 
-  goCreer(){
-    this.router.navigate(['/creer']);
-  }
-
   goAdmin(){
     this.router.navigate(['/administration']);
   }

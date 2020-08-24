@@ -17,10 +17,6 @@ export class MenuPage implements OnInit {
   ngOnInit() {
   }
 
-  goCreer(){
-    this.router.navigate(['/creer']);
-  }
-
   goAdmin(){
     this.router.navigate(['/administration']);
   }
