@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'stock', loadChildren: './stock/stock.module#StockPageModule' },
   { path: 'stock-detail/:id', loadChildren: './stock-detail/stock-detail.module#StockDetailPageModule' },
   { path: 'consultation', loadChildren: './consultation/consultation.module#ConsultationPageModule' },
+  { path: 'information', loadChildren: './information/information.module#InformationPageModule' },
 
 ];
  

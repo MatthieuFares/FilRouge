@@ -1,0 +1,77 @@
+<ion-header translucent>
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+      <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    
+        <img class="logo" src="../../../assets/img/logo.png" slot="start"/>
+        <ion-title text-center>Informations générales</ion-title>
+    
+        <ion-buttons slot="end">
+          <ion-buttons ion-button (click)="logoutUser()">
+            Déconnexion <ion-icon slot="icon-only" name="log-out"></ion-icon>
+          </ion-buttons>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+   
+  <ion-content>
+    <ion-list *ngFor="let dat of informationDetail">
+        <ion-item>
+          <ion-label>Dénomination : {{dat.denominationInformation}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Adresse : {{dat.adresseInformation}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Téléphone : {{dat.telephoneInformation}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>SIREN : {{dat.sirenInformation}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>SIRET : {{dat.siretInformation}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Activité : {{dat.activiteInformation}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Code NAF : {{dat.nafInformation}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Forme juridique : {{dat.formeInformation}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Date immatriculation RCS : {{dat.dateRcsInformation}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Tranche d'effectif : {{dat.effectifInformation}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Capital social : {{dat.capitalSocialInformation}} €</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Catégorie : {{dat.categorieInformation}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Chiffre d'affaire : {{dat.caInformation}} €</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Site web : {{dat.sitewebInformation}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Date création entreprise : {{dat.dateCreationInformation}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Code APRM : {{dat.codeAprmInformation}}</ion-label>
+        </ion-item>
+    </ion-list>
+  </ion-content>
+  
