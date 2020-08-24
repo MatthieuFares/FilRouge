@@ -26,6 +26,10 @@ export class ModalitePaiementPage implements OnInit {
     this.router.navigate(['/suiviDevis']);
   }
 
+  goSuiviCommande() {
+    this.router.navigate(['/suiviCommande']);
+  }
+
   logoutUser(){
     this.authService.logout();
   }
