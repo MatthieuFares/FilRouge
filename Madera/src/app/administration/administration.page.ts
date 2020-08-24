@@ -26,19 +26,6 @@ export class AdministrationPage implements OnInit {
     this.router.navigate(['/client']);
   }
 
-  goModule(){
-    this.router.navigate(['/module']);
-  }
-  goFamilleComposant(){
-	this.router.navigate(['/famillecomposant']);  
-  }
-  goComposant(){
-	this.router.navigate(['/composant']);  
-  }
-  goFournisseur(){
-	this.router.navigate(['/fournisseur']);  
-  }
-
   logoutUser(){
     this.authService.logout();
   }
