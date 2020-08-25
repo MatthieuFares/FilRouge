@@ -1,4 +1,12 @@
 <ion-header translucent>
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+      
     <ion-toolbar color="primary">
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
@@ -18,8 +26,7 @@
 <ion-content>
     <ion-grid>
         <ion-row>
-            <ion-col class="cont" col-1>Date : 
-                <ion-datetime displayFormat="DD/MM/YYYY" min="1994-03-14" max="2025-12-31" value="2019-10-09T15:03:46.789"></ion-datetime>
+            <ion-col class="cont" col-1>
             </ion-col>
             <ion-col class="cont" col-2> </ion-col>
             <ion-col class="cont" col-3> </ion-col>
@@ -32,19 +39,23 @@
         </ion-row>
         <ion-row>
             <ion-col class="reste" col-2>Devis</ion-col>
-            <ion-col class="reste" col-3>Statut</ion-col>
-            <ion-col class="reste" col-4>Valider</ion-col>
-            <ion-col class="reste" col-5>Refuser</ion-col>
+            <ion-col class="reste" col-3>Client</ion-col>
+            <ion-col class="reste" col-4>Nombre de mur</ion-col>
+            <ion-col class="reste" col-5>Nombre de MC</ion-col>
+            <ion-col class="reste" col-5>Nombre de fenêtres</ion-col>
+            <ion-col class="reste" col-5>Type de bois</ion-col>
+            <ion-col class="reste" col-5>Prix</ion-col>
+        
         </ion-row>
         <ion-row *ngFor="let dat of devisListe; let i = index" text-center>
             <ion-col class="reste" col-2>{{dat.idDevis}}</ion-col>
-            <ion-col class="reste" col-3>{{dat.statutDevis}}</ion-col>
-            <ion-col class="reste" col-4>
-                <ion-checkbox value="{{dat.idDevis}}" (ionChange)="checkEventValider(dat)"></ion-checkbox>
-            </ion-col>
-            <ion-col class="reste" col-5>
-                <ion-checkbox value="{{dat.idDevis}}" (ionChange)="checkEventRefuser(dat)"></ion-checkbox>
-            </ion-col>
+            <ion-col class="reste" col-3>{{dat.nomClient}}</ion-col>
+            <ion-col class="reste" col-4>{{dat.nbMur}}</ion-col>
+            <ion-col class="reste" col-5>{{dat.nbMC}}</ion-col>
+            <ion-col class="reste" col-6>{{dat.nbFenetre}}</ion-col>
+            <ion-col class="reste" col-7>{{dat.typeDeBois}}</ion-col>
+            <ion-col class="reste" col-7>{{dat.prix}}</ion-col>
+            
         </ion-row>
     </ion-grid>
 
