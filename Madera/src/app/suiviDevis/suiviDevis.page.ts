@@ -1,24 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SystemJsNgModuleLoaderConfig } from '@angular/core';
 import { AuthenticationService } from '../services/Authentication.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { formatDate } from '@angular/common';
+
+
+export class devis {
+  idDevis : number;
+  nomClient : string;
+  nbMur : number;
+  nbMC : number;
+  nbFenetre : number;
+  typeBois : string;
+  prix : number;
+
+  constructor(idDevis:number, nomClient:string, nbMur:number, nbMC:number, nbFenetre:number, typebois:string, prix:number){
+    this.idDevis = idDevis;
+    this.nomClient = nomClient;
+    this.nbMur = nbMur;
+    this.nbMC = nbMC;
+    this.nbFenetre = nbFenetre;
+    this.typeBois = typebois;
+    this.prix = prix;
+  }
+}
 
 @Component({
   selector: 'app-suiviDevis',
   templateUrl: './suiviDevis.page.html',
   styleUrls: ['./suiviDevis.page.scss'],
 })
+
+
 export class SuiviDevisPage implements OnInit {
   data: string;
   error: string;
-  devisListe: any = [];
+  devisListe: devis[];
+  total : number = 0;
 
   etat: boolean;
   day: any;
   indexOfDay: any;
 
   constructor(
+    
     private authService: AuthenticationService,
     private httpClient: HttpClient
     ) {
@@ -28,14 +53,15 @@ export class SuiviDevisPage implements OnInit {
 
   ionViewWillEnter() {
     this.prepareDataRequest().subscribe(
-      (data: any) => {
-        this.devisListe = data.data;
-        console.log(data.data);
+      (devis: any) => {
+        this.devisListe = devis.data;
+        console.log(this.devisListe);
       },
       err => {
         this.error = `An error occurred, the data could not be retrieved: Status: ${err.status}, Message: ${err.statusText}`;
       }
     )
+
   }
   
   private prepareDataRequest(): Observable<object> {
@@ -89,8 +115,15 @@ export class SuiviDevisPage implements OnInit {
     console.log(dat);
   }
 
-
   ngOnInit() {
+  }
+
+  calculTotal(): number{
+    this.devisListe.forEach(devis => {
+      this.total += +devis.prix;
+    });
+    console.log(this.total);
+    return this.total;
   }
 
   logoutUser(){

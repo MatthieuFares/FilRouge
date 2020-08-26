@@ -13,7 +13,7 @@
         </ion-buttons>
     
         <img class="logo" src="../../assets/img/logo.png" slot="start"/>
-        <ion-title text-center>ÉTAT D'AVANCEMENT DU DEVIS</ion-title>
+        <ion-title text-center>LISTE DE DEVIS</ion-title>
     
         <ion-buttons slot="end">
             <ion-buttons ion-button (click)="logoutUser()">
@@ -31,20 +31,16 @@
             <ion-col class="cont" col-2> </ion-col>
             <ion-col class="cont" col-3> </ion-col>
             <ion-col class="cont" col-4> </ion-col>
-            <ion-col class="cont" col-5>
-            <ion-select  placeholder="Filtrer statut">
-                <ion-select-option *ngFor="let dat of devisListe" [value]="dat">{{dat.statutDevis}}</ion-select-option>
-            </ion-select>
-            </ion-col>
+            <ion-col class="cont" col-5> </ion-col>
         </ion-row>
         <ion-row>
             <ion-col class="reste" col-2>Devis</ion-col>
             <ion-col class="reste" col-3>Client</ion-col>
             <ion-col class="reste" col-4>Nombre de mur</ion-col>
             <ion-col class="reste" col-5>Nombre de MC</ion-col>
-            <ion-col class="reste" col-5>Nombre de fenêtres</ion-col>
-            <ion-col class="reste" col-5>Type de bois</ion-col>
-            <ion-col class="reste" col-5>Prix</ion-col>
+            <ion-col class="reste" col-6>Nombre de fenêtres</ion-col>
+            <ion-col class="reste" col-7>Type de bois</ion-col>
+            <ion-col class="reste" col-8>Prix</ion-col>
         
         </ion-row>
         <ion-row *ngFor="let dat of devisListe; let i = index" text-center>
@@ -54,8 +50,20 @@
             <ion-col class="reste" col-5>{{dat.nbMC}}</ion-col>
             <ion-col class="reste" col-6>{{dat.nbFenetre}}</ion-col>
             <ion-col class="reste" col-7>{{dat.typeDeBois}}</ion-col>
-            <ion-col class="reste" col-7>{{dat.prix}}</ion-col>
+            <ion-col style="text-align: right;" class="reste" col-8>{{dat.prix}} €</ion-col>
             
+        </ion-row>
+        <ion-row>
+            <ion-col class="cont" col-1>
+                <ion-button (click) = "calculTotal()">Calculer Total</ion-button> 
+            </ion-col>
+            <ion-col class="cont" col-2> </ion-col>
+            <ion-col class="cont" col-3> </ion-col>
+            <ion-col class="cont" col-4> </ion-col>
+            <ion-col class="cont" col-5> </ion-col>
+            <ion-col class="cont" col-6> </ion-col>
+            <ion-col style="font-weight: bold;"class="reste" col-7> Chiffre d'affaire prévisionnel</ion-col>
+            <ion-col style="text-align: right;font-weight: bold;"class="reste" col-8>{{total}} €</ion-col>
         </ion-row>
     </ion-grid>
 

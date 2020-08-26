@@ -13,6 +13,8 @@ export class SuiviPaiementPage implements OnInit {
   data: string;
   error: string;
   commandeListe: any = [];
+  total: number;
+  prix: number;
 
   constructor(
     private router: Router,
@@ -47,4 +49,5 @@ export class SuiviPaiementPage implements OnInit {
   logoutUser(){
     this.authService.logout();
   }
+
 }
