@@ -31,6 +31,10 @@ export class ConsultationPage implements OnInit {
 	this.router.navigate(['/fournisseur']);  
   }
 
+  goDevis(){
+    this.router.navigate(['/devis'])
+  }
+
   logoutUser(){
     this.authService.logout();
   }

@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'consultation', loadChildren: './consultation/consultation.module#ConsultationPageModule' },
   { path: 'information', loadChildren: './information/information.module#InformationPageModule' },
   { path: 'suiviCommande', loadChildren: './suiviCommande/suiviCommande.module#SuiviCommandePageModule' },
+  { path: 'devis', loadChildren: './devis/devis.module#DevisPageModule' },
 
 ];
  
