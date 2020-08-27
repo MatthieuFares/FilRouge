@@ -31,8 +31,8 @@
         <ion-col class="cont" col-3> </ion-col>
         <ion-col class="cont" col-4> </ion-col>
         <ion-col class="cont" col-5>
-          <ion-select placeholder="Sélectionner une commande">
-            <ion-select-option *ngFor="let dat of commandeListe" [value]="dat">{{dat.idCommande}}</ion-select-option>
+          <ion-select (ionChange)="UpdatePage($event)" placeholder="Sélectionner une commande">
+            <ion-select-option *ngFor="let dat of commandeListe" [value]="dat.id">{{dat.idCommande}}</ion-select-option>
           </ion-select>
         </ion-col>
       </ion-row>
@@ -42,51 +42,35 @@
       </ion-row>
       <ion-row text-center>
         <ion-col class="premiere" col-2>A la signature</ion-col>
-        <ion-col class="reste" col-5>
-          <ion-checkbox></ion-checkbox>
-        </ion-col>
+        <ion-col class="reste" col-5>{{commande.signaturePaiement}}</ion-col>
       </ion-row>
       <ion-row text-center>
         <ion-col class="premiere" col-2>Obtention du permis de construire</ion-col>
-        <ion-col class="reste" col-5>
-          <ion-checkbox></ion-checkbox>
-        </ion-col>
+        <ion-col class="reste" col-5>{{commande.permisConstruirePaiement}}</ion-col>
       </ion-row>
       <ion-row text-center>
         <ion-col class="premiere" col-2>Ouverture du chantier</ion-col>
-        <ion-col class="reste" col-5>
-          <ion-checkbox></ion-checkbox>
-        </ion-col>
+        <ion-col class="reste" col-5>{{commande.OuvertureChantierPaiement}}</ion-col>
       </ion-row>
       <ion-row text-center>
         <ion-col class="premiere" col-2>Achèvement des fondations</ion-col>
-        <ion-col class="reste" col-5>
-          <ion-checkbox></ion-checkbox>
-        </ion-col>
+        <ion-col class="reste" col-5>{{commande.achevementFondationPaiement}}</ion-col>
       </ion-row>
       <ion-row text-center>
         <ion-col class="premiere" col-2>Achèvement des murs</ion-col>
-        <ion-col class="reste" col-5>
-          <ion-checkbox></ion-checkbox>
-        </ion-col>
+        <ion-col class="reste" col-5>{{commande.achevementMurPaiement}}</ion-col>
       </ion-row>
       <ion-row text-center>
         <ion-col class="premiere" col-2>Mise hors d'eau / hors d'air</ion-col>
-        <ion-col class="reste" col-5>
-          <ion-checkbox></ion-checkbox>
-        </ion-col>
+        <ion-col class="reste" col-5>{{commande.miseHorsDeauPaiement}}</ion-col>
       </ion-row>
       <ion-row text-center>
         <ion-col class="premiere" col-2>Achèvement des travaux d'équipement (plomberie, menuiserie, chauffage)</ion-col>
-        <ion-col class="reste" col-5>
-          <ion-checkbox></ion-checkbox>
-        </ion-col>
+        <ion-col class="reste" col-5>{{commande.achevementTravauxPaiement}}</ion-col>
       </ion-row>
       <ion-row text-center>
         <ion-col class="premiere" col-2>Remise des clés</ion-col>
-        <ion-col class="reste" col-5>
-          <ion-checkbox></ion-checkbox>
-        </ion-col>
+        <ion-col class="reste" col-5>{{commande.remiseClePaiement}}</ion-col>
       </ion-row>
     </ion-grid>
     
