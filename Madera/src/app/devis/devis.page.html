@@ -43,15 +43,55 @@
           <ion-col class="reste" col-8>Prix</ion-col>
           <ion-col class="reste" col-9>Editer en PDF</ion-col>
       </ion-row>
-      <ion-row *ngFor="let dat of devisListe; let i = index" text-center>
-          <ion-col class="reste" col-2>{{dat.idDevis}}</ion-col>
-          <ion-col class="reste" col-3>{{dat.nomClient}}</ion-col>
-          <ion-col class="reste" col-4>{{dat.nbMur}}</ion-col>
-          <ion-col class="reste" col-5>{{dat.nbMC}}</ion-col>
-          <ion-col class="reste" col-6>{{dat.nbFenetre}}</ion-col>
-          <ion-col class="reste" col-7>{{dat.typeDeBois}}</ion-col>
-          <ion-col style="text-align: right;" class="reste" col-8>{{dat.prix}} €</ion-col>
-          <ion-col (click)="downloadPdf(dat.idDevis)" class="reste" col-9><ion-button>Choisir</ion-button></ion-col>
+      <ion-row text-center>
+          <ion-col class="reste" col-2>1</ion-col>
+          <ion-col class="reste" col-3>El Krissi</ion-col>
+          <ion-col class="reste" col-4>4</ion-col>
+          <ion-col class="reste" col-5>30</ion-col>
+          <ion-col class="reste" col-6>4</ion-col>
+          <ion-col class="reste" col-7>Chêne</ion-col>
+          <ion-col style="text-align: right;" class="reste" col-8>35000.99 €</ion-col>
+          <ion-col (click)="downloadPdf(1, 'El Krissi', 4, 30, 4, 'Chêne', 35000.99)" class="reste" col-9><ion-button>Choisir</ion-button></ion-col>
+        </ion-row>
+        <ion-row text-center>
+          <ion-col class="reste" col-2>2</ion-col>
+          <ion-col class="reste" col-3>fghfgh</ion-col>
+          <ion-col class="reste" col-4>5</ion-col>
+          <ion-col class="reste" col-5>13</ion-col>
+          <ion-col class="reste" col-6>3</ion-col>
+          <ion-col class="reste" col-7>Saule Pleureur</ion-col>
+          <ion-col style="text-align: right;" class="reste" col-8>15610.99 €</ion-col>
+          <ion-col (click)="downloadPdf(2, 'fghfgh', 5,13, 3, 'Saule Pleureur', 15610.99)" class="reste" col-9><ion-button>Choisir</ion-button></ion-col>
+        </ion-row>
+        <ion-row text-center>
+          <ion-col class="reste" col-2>3</ion-col>
+          <ion-col class="reste" col-3>jhkhjk</ion-col>
+          <ion-col class="reste" col-4>6</ion-col>
+          <ion-col class="reste" col-5>21</ion-col>
+          <ion-col class="reste" col-6>5</ion-col>
+          <ion-col class="reste" col-7>Pin</ion-col>
+          <ion-col style="text-align: right;" class="reste" col-8>25207.99 €</ion-col>
+          <ion-col (click)="downloadPdf(3, 'jhkhjk', 6, 21, 5, 'Pin', 25207.99)" class="reste" col-9><ion-button>Choisir</ion-button></ion-col>
+        </ion-row>
+        <ion-row text-center>
+          <ion-col class="reste" col-2>4</ion-col>
+          <ion-col class="reste" col-3>jhkhjk</ion-col>
+          <ion-col class="reste" col-4>5</ion-col>
+          <ion-col class="reste" col-5>24</ion-col>
+          <ion-col class="reste" col-6>5</ion-col>
+          <ion-col class="reste" col-7>Chêne</ion-col>
+          <ion-col style="text-align: right;" class="reste" col-8>28800.99 €</ion-col>
+          <ion-col (click)="downloadPdf(4)" class="reste" col-9><ion-button>Choisir</ion-button></ion-col>
+        </ion-row>
+        <ion-row text-center>
+          <ion-col class="reste" col-2>5</ion-col>
+          <ion-col class="reste" col-3>BLa</ion-col>
+          <ion-col class="reste" col-4>6</ion-col>
+          <ion-col class="reste" col-5>40</ion-col>
+          <ion-col class="reste" col-6>5</ion-col>
+          <ion-col class="reste" col-7>Baobab Africain</ion-col>
+          <ion-col style="text-align: right;" class="reste" col-8>48010.99 €</ion-col>
+          <ion-col (click)="downloadPdf(5)" class="reste" col-9><ion-button>Choisir</ion-button></ion-col>
         </ion-row>
   </ion-grid>
 

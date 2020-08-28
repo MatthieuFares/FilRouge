@@ -48,8 +48,55 @@ export class DevisPage implements OnInit {
 
   data: string;
   error: string;
-
-  devisListe: devis[];
+  
+  devisListe :  [ 
+    {
+      "idDevis": "1",
+      "nomClient": "El Krissi",
+      "nbMur": "4",
+      "nbMC": "30",
+      "nbFenetre": "4",
+      "typeDeBois": "Chêne",
+      "prix": "35000.99"
+    },
+    {
+      "idDevis": "2",
+      "nomClient": "fghfgh",
+      "nbMur": "5",
+      "nbMC": "13",
+      "nbFenetre": "3",
+      "typeDeBois": "Saule Pleureur",
+      "prix": "15610.99"
+    },
+    {
+      "idDevis": "3",
+      "nomClient": "jhkhjk",
+      "nbMur": "6",
+      "nbMC": "21",
+      "nbFenetre": "5",
+      "typeDeBois": "Pin",
+      "prix": "25207.99"
+    },
+    {
+      "idDevis": "4",
+      "nomClient": "jhkhjk",
+      "nbMur": "5",
+      "nbMC": "24",
+      "nbFenetre": "5",
+      "typeDeBois": "Chêne",
+      "prix": "28800.99"
+    },
+    {
+      "idDevis": "5",
+      "nomClient": "BLa",
+      "nbMur": "6",
+      "nbMC": "40",
+      "nbFenetre": "5",
+      "typeDeBois": "Baobab Africain",
+      "prix": "48010.99"
+    }
+  ]
+  ;
   mursExtPrix: number;
   mursIntPrix:number;
   fenetresPrix: number;
@@ -73,7 +120,7 @@ export class DevisPage implements OnInit {
     }
 
   ionViewWillEnter() {
-    this.prepareDataRequest().subscribe(
+    /*this.prepareDataRequest().subscribe(
       (devis: any) => {
         this.devisListe = devis.data;
         console.log(this.devisListe);
@@ -81,8 +128,7 @@ export class DevisPage implements OnInit {
       err => {
         this.error = `An error occurred, the data could not be retrieved: Status: ${err.status}, Message: ${err.statusText}`;
       }
-    )
-
+    )*/
   }
   
   private prepareDataRequest(): Observable<object> {
@@ -102,10 +148,7 @@ export class DevisPage implements OnInit {
     this.authService.logout();
   }
 
-  createPDF(id : number){
-    var myID : number = id -1;
-    this.monDevis = this.devisListe[myID];
-    console.log(this.monDevis);
+  createPDF(idDevis:number, nomClient:string, nbMur:number, nbMC:number, nbFenetre:number, typeDeBois:string, prix:number){
     var docDefinition = {
       content: [
         { text: 'Devis Maison Modulaire', style: 'header', alignment: 'center'},
@@ -115,21 +158,21 @@ export class DevisPage implements OnInit {
         { text: 'Numero : 123456789' },
  
         { text: 'Client', style: 'subheader' },
-        {text: this.monDevis.nomClient, alignment:'center', style: 'subheader'},
+        {text: nomClient, alignment:'center', style: 'subheader'},
         { text: 'Nombre de murs Extérieurs :'},
-        { text: this.monDevis.nbMur, alignment:'center'},
+        { text: nbMur, alignment:'center'},
         { text:' '},
-        { text: 'Nombre de murs Intérieurs :'},
-        { text: this.monDevis.nbMC,alignment:'center'},
+        { text: 'Nombre de mètres carrés :'},
+        { text: nbMC,alignment:'center'},
         { text:' '},
         { text: 'Nombre de fenêtres :'},
-        { text: this.monDevis.nbFenetre,alignment:'center'},
+        { text: nbFenetre,alignment:'center'},
         { text:' '},
         { text: 'Type de Bois :'},
-        { text: this.monDevis.typeDeBois,alignment:'center'},
+        { text:typeDeBois,alignment:'center'},
         { text:' '},
         { text: 'Prix Devis:', style: 'subheader',alignment: 'right'},
-        { text: this.monDevis.prix+' €', alignment: 'right', style: 'subheader'}
+        { text: prix+' €', alignment: 'right', style: 'subheader'}
 
       ],
       styles: {
@@ -152,8 +195,8 @@ export class DevisPage implements OnInit {
     this.pdfObj = pdfMake.createPdf(docDefinition);
   }
  
-  downloadPdf(id : number) {
-    this.createPDF(id);
+  downloadPdf(idDevis:number, nomClient:string, nbMur:number, nbMC:number, nbFenetre:number, typeDeBois:string, prix:number) {
+    this.createPDF(idDevis, nomClient, nbMur, nbMC, nbFenetre, typeDeBois, prix);
     if (this.plt.is('cordova')) {
       this.pdfObj.getBuffer((buffer) => {
         var blob = new Blob([buffer], { type: 'application/pdf' });
